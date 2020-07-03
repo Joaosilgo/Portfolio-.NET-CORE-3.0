@@ -1,0 +1,331 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*<div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>*@
+
+
+<!-- Header -->
+@*<header class="masterhead">
+        <div class="container d-flex h-100 align-items-center">
+            <div class="mx-auto text-center">
+                <h1 class="mx-auto my-0 text-uppercase">Grayscale</h1>
+                <h2 class="text-white-50 mx-auto mt-2 mb-5">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
+                <a href="#about" class="btn btn-primary js-scroll-trigger">Get Started</a>
+            </div>
+        </div>
+    </header>*@
+
+
+<!-- #region Carrossel -->
+<!-- Navigation -->
+<!--- Image Slider -->
+@*<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100" src="~/img/2560x1440-davys-grey-solid-color-background.jpg" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>...</h5>
+                <p>...</p>
+            </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="~/img/2560x1440-davys-grey-solid-color-background.jpg" alt="Second slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>...</h5>
+                    <p>...</p>
+                </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="~/img/2560x1440-davys-grey-solid-color-background.jpg" alt="Third slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>...</h5>
+                        <p>...</p>
+                    </div>
+                    </div>
+                </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>*@
+
+<!-- #endregion -->
+
+
+    <main class="site-main">
+        <section class="site-banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 site-title">
+                        <h3 class="title-text">Hey</h3>
+                        <h1 class="title-text text-uppercase">I am João Gomes</h1>
+                        <h4 class="title-text text-uppercase">Computer Engineering Student</h4>
+                        <div class="site-buttons">
+                            <div class="d-flex flex-row flex-wrap">
+                                <button type="button" class="btn button primary-button mr-4 text-uppercase"  onclick="@("window.location.href='" + @Url.Action("Contact", "Home") + "'");">
+                               
+                                    
+                                    hire
+                                    me
+                                </button>
+                                <a asp-action="Download" asp-route-filename="JoãoGomes.pdf" class="btn button secondary-button text-uppercase">
+                                    Get cv
+                                </a>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 banner-image">
+                        @*<img data-src="holder.js/200x200/auto" alt="banner-img" class="img-fluid" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22500%22%20height%3D%22500%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20500%20500%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16e660f837b%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16e660f837b%22%3E%3Crect%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22185.1171875%22%20y%3D%22261.1%22%3E500x500%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" >*@
+
+                        <img class="img-fluid" src="~/img/tree-2069715.svg" />
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        @*<div class="parallax"></div>*@
+
+        <!--- Jumbotron -->
+        <div class="container-fluid">
+            <div class="row jumbotron">
+                <div class="col-sm-12 col-md-9 col-lg-9 col-xl-10">
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc omni virtuti vitium contrario nomine opponitur. Quamquam te quidem video minime esse deterritum. Quoniam, si dis placet, ab Epicuro loqui discimus. Aliter enim explicari, quod quaeritur, non potest. Duo Reges: constructio interrete. Audax negotium, dicerem impudens, nisi hoc institutum postea translatum ad philosophos nostros esset.</p>
+                </div>
+            </div>
+        </div>
+       @* <div class="parallax"></div>*@
+        <!--- Welcome Section -->
+        <div class="container-fluid padding">
+            <div class="row welcome text-center">
+                <div class="col-12">
+                    <h1 class="display-4">Build</h1>
+                </div>
+                <hr />
+                <div class="col-12">
+                    <p class="lead"> Welcom Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+
+            </div>
+        </div>
+        <!--- Three Column Section -->
+
+        <div class="container-fluid padding">
+            <div class="row text-center padding">
+                <div class="col-sm-12 col-sm-6 col-md-4">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML5</h3>
+                    <p>Build With Latest HTML5</p>
+                </div>
+                <div class="col-sm-12 col-sm-6 col-md-4">
+                    <i class="fab fa-bootstrap"></i>
+                    <h3>BOOTSTRAP</h3>
+                    <p>Build With Latest Bootstrap4</p>
+                </div>
+                <div class="col-sm-12 col-sm-6 col-md-4">
+                    <i class="fab fa-css3-alt"></i>
+                    <h3>CSS3</h3>
+                    <p>Build With Latest CSS3</p>
+                </div>
+            </div>
+            <hr class="my-4" />
+        </div>
+
+        <!--- Two Column Section -->
+        <!--- Fixed background -->
+        <!--- Emoji Section -->
+        <!--- Meet the team -->
+        <!--- Cards -->
+        <!--- Two Column Section -->
+        <!--- Connect -->
+        <!--- Footer -->
+
+
+
+
+
+
+    </main>
+
+<!-- #region Bing -->
+
+
+<script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=Aq2aorhJWOK7PsahSdw4Rbi57cIc0EA6dFhmKGp7_N0np3MM3PEN3HrCGv24WaOd'></script>
+<script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=Aq2aorhJWOK7PsahSdw4Rbi57cIc0EA6dFhmKGp7_N0np3MM3PEN3HrCGv24WaOd' async defer></script>
+
+<script type='text/javascript'>
+    //var map;
+    //function loadMapScenario() {
+    //    map = new Microsoft.Maps.Map(document.getElementById('myMap'), {});
+    function loadMapScenario() {
+        var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {});
+        var center = map.getCenter();
+        var polygon = new Microsoft.Maps.Polygon([
+            new Microsoft.Maps.Location(38.403697, 8.758033),
+            new Microsoft.Maps.Location(38.403495, -8.759122),
+            new Microsoft.Maps.Location(38.4035802, -8.7591546)], null);
+
+
+
+        map.entities.push(polygon);
+        // Binding the events
+        Microsoft.Maps.Events.addHandler(polygon, 'click', function () { highlight('polygonClick'); });
+        Microsoft.Maps.Events.addHandler(polygon, 'dblclick', function () { highlight('polygonDblclick'); });
+        Microsoft.Maps.Events.addHandler(polygon, 'mousedown', function () { highlight('polygonMousedown'); });
+        Microsoft.Maps.Events.addHandler(polygon, 'mouseout', function () { highlight('polygonMouseout'); });
+        Microsoft.Maps.Events.addHandler(polygon, 'mouseover', function () { highlight('polygonMouseover'); });
+        Microsoft.Maps.Events.addHandler(polygon, 'mouseup', function () { highlight('polygonMouseup'); });
+        // Setting up the printout panel
+        document.getElementById('printoutPanel').innerHTML =
+            '<div id="polygonClick">click</div><div id="polygonDblclick">dblclick</div><div id="polygonMousedown">mousedown</div><div id="polygonMouseout">mouseout</div><div id="polygonMouseover">mouseover</div><div id="polygonMouseup">mouseup</div>';
+        function highlight(id) {
+            document.getElementById(id).style.background = 'LightGreen';
+            setTimeout(function () { document.getElementById(id).style.background = 'white'; }, 1000);
+        }
+
+
+        navigator.geolocation.getCurrentPosition(function (position) {
+            var loc = new Microsoft.Maps.Location(
+                position.coords.latitude,
+                position.coords.longitude);
+            //Add a pushpin at the user's location.
+            var pin = new Microsoft.Maps.Pushpin(loc);
+            map.entities.push(pin);
+
+            map.setView({ center: loc, zoom: 15 });
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+        Microsoft.Maps.loadModule('Microsoft.Maps.SpatialDataService', function () {
+            //Create an array of state boundaries to retrieve.
+            //var states = ['Dubai', 'California', 'nevada', 'utah', 'arizona', 'colorado', 'dc', 'maryland', 'new york', 'British Columbia', 'Beijing', 'England', 'Scotland', 'Northern Island'];
+            ////Create geoData request options to retrieve state boundaries.
+            //var stateRequestOptions = {
+            //    entityType: 'AdminDivision1',
+            //    getAllPolygons: false,
+            //};
+
+            ////Use the GeoData API manager to get the State.
+            //Microsoft.Maps.SpatialDataService.GeoDataAPIManager.getBoundary(states, stateRequestOptions, map, function (data) {
+            //    if (data.results && data.results.length > 0) {
+            //        map.entities.push(data.results[0].Polygons);
+            //    }
+            //});
+            //Create an array of country boundaries to retrieve.
+            var countries = ['Portugal'];
+            //Create geoData request options to retrieve country boundaries.
+            var countryRequestOptions = {
+                entityType: 'AdminDivision1',
+                getAllPolygons: true,
+            };
+            //Use the GeoData API manager to retrieve the country boundaries.
+            Microsoft.Maps.SpatialDataService.GeoDataAPIManager.getBoundary(countries, countryRequestOptions, map, function (data) {
+                if (data.results && data.results.length > 0) {
+                    map.entities.push(data.results[0].Polygons);
+                }
+            });
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        ////////////////////////////////////////////
+
+    }
+
+
+
+
+
+</script>
+
+
+
+
+
+<body onload='loadMapScenario();'>
+    @*<div id='printoutPanel'></div>*@
+
+    @* <div id="myMap" style="position:relative;width:100vw;height:100vh;"></div>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+<!-- #endregion -->

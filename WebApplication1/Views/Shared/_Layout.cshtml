@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - João Gomes</title>
+    @*<link rel="stylesheet" href="css.css" media="none" onload="if(media!='all')media='all'">*@
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <noscript><link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"></noscript>
+    <link rel="stylesheet" href="~/css/site.css">
+    <noscript><link rel="stylesheet" href="~/css/site.css"></noscript>
+    <link rel="stylesheet" href="~/css/style.css">
+    <noscript><link rel="stylesheet" href="~/css/style.css"></noscript>
+    <link rel="stylesheet" href="~/css/responsive.css">
+    <noscript><link rel="stylesheet" href="~/css/responsive.css"></noscript>
+    <script rel="prefetch" src="https://kit.fontawesome.com/f13bd2d1fd.js" crossorigin="anonymous"></script>
+    @* <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">*@
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 ">
+            <div class="container">
+
+                @*<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">João Gomes</a>*@
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><svg height="44px" version="1.1" viewBox="0 0 24 44" width="24px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>comma</title><defs></defs><g id="comma" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g id="comma_fill" fill="#000000" transform="translate(-86.000000, -22.000000)"><g id="comma_fill_1"><g id="comma_fill_1_group"><g id="comma_fill_1_group_2" transform="translate(86.000000, 22.000000)"><path d="M2.3325273,44 C2.3325273,42.9819019 2.25294268,42.1290181 2.37000751,41.3070321 C2.41990001,40.9564305 2.82901847,40.5810595 3.16268975,40.3693706 C4.78942848,39.3369727 6.55659633,38.5126886 8.07113779,37.32861 C12.9769087,33.4931864 15.8847893,28.4440632 16.0437152,21.8852845 C16.0887401,20.0229846 15.4041177,19.5577289 13.8399272,20.2831908 C9.32477801,22.3776079 4.46938637,21.1496084 1.87814052,17.2574961 C-0.947721751,13.012484 -0.549798677,7.36046894 2.83607643,3.65221184 C7.16090397,-1.08410221 14.2770341,-1.22582393 19.1842653,3.29752453 C22.1237851,6.00709044 23.5205316,9.50570155 23.8688055,13.4851451 C25.0365333,26.8169447 18.349722,37.8056121 6.17936039,42.6328324 C4.97488253,43.1103451 3.73973905,43.5025696 2.3325273,44" id="Fill-3"></path></g></g></g></g></g></svg> <span>JoãoGomes</span></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1 ">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Projects" asp-action="Index">Projetos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Resumes" asp-action="Resume">Resume</a>
+                        </li>
+                        @if (User.IsInRole("Administrador"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Resumes" asp-action="Index">Curriculum</a>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-5">
+            @RenderBody()
+
+
+
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </main>
+
+        <style>
+
+            #myBtn {
+                display: none; /* Hidden by default */
+                position: fixed; /* Fixed/sticky position */
+                bottom: 80px; /* Place the button at the bottom of the page */
+                right: 30px; /* Place the button 30px from the right */
+                z-index: 99; /* Make sure it does not overlap */
+                border: none; /* Remove borders */
+                outline: none; /* Remove outline */
+                background-color: dimgray; /* Set a background color */
+                color: white; /* Text color */
+                cursor: pointer; /* Add a mouse pointer on hover */
+                padding: 15px; /* Some padding */
+                border-radius: 10px; /* Rounded corners */
+                font-size: 18px; /* Increase font size */
+            }
+
+                #myBtn:hover {
+                    background-color: #555; /* Add a dark-grey background on hover */
+                }
+        </style>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    </div>
+
+    @*<footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2019 - João Gomes - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                <a href="https://www.linkedin.com/in/jo%C3%A3o-gomes-287950162/" rel="nofollow" target="_blank"> <span class="fab fa-linkedin"></span> </a>
+            </div>
+
+
+        </footer>*@
+    <!-- Footer -->
+    <footer class="page-footer font-small blue-grey lighten-5 ">
+
+        <div style="background-color: #6C7A89">
+            <div class="container">
+
+                <!-- Grid row-->
+                <div class="row py-4 d-flex align-items-center social ">
+
+                    <!-- Grid column -->
+                    <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                        <h6 class="mb-0">Get connected with us on social networks!</h6>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-6 col-lg-7 text-center text-md-right">
+
+                        <!-- Facebook -->
+                        <a class="fb-ic">
+                            <i class="fab fa-facebook-f white-text mr-4"> </i>
+                        </a >
+                        <!-- Twitter -->
+                        <a class="tw-ic">
+                            <i class="fab fa-twitter white-text mr-4"> </i>
+                        </a>
+                        <!-- Google +-->
+                        <a class=" ggplus-ic">
+                            <i class="fab fa-google-plus-g white-text mr-4"> </i>
+
+                        </a>
+                        <!--Linkedin -->
+                        <a class="li-ic">
+                            <i id="linkedin"class="fab fa-linkedin-in white-text mr-4"> </i>
+                        </a>
+                        <!--Instagram-->
+                        <a class="ins-ic">
+                            <i class="fab fa-instagram white-text"> </i>
+                        </a>
+
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row-->
+
+            </div>
+        </div>
+
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left mt-5">
+
+            <!-- Grid row -->
+            <div class="row mt-3 dark-grey-text" >
+
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+
+                    <!-- Content -->
+                    <h6 class="text-uppercase font-weight-bold">Company name</h6>
+                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                        Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+                        consectetur
+                        adipisicing elit.
+                    </p>
+
+                </div>
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                    <!-- Links -->
+                    <h6 class="text-uppercase font-weight-bold">Products</h6>
+                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                        <a class="dark-grey-text" href="#!">MDBootstrap</a>
+                    </p>
+                    <p>
+                        <a class="dark-grey-text" href="#!">MDWordPress</a>
+                    </p>
+                    <p>
+                        <a class="dark-grey-text" href="#!">BrandFlow</a>
+                    </p>
+                    <p>
+                        <a class="dark-grey-text" href="#!">Bootstrap Angular</a>
+                    </p>
+
+                </div>
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                    <!-- Links -->
+                    <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                        <a class="dark-grey-text" href="#!">Your Account</a>
+                    </p>
+                    <p>
+                        <a class="dark-grey-text" href="#!">Become an Affiliate</a>
+                    </p>
+                    <p>
+                        <a class="dark-grey-text" href="#!">Shipping Rates</a>
+                    </p>
+                    <p>
+                        <a class="dark-grey-text" href="#!">Help</a>
+                    </p>
+
+                </div>
+                <!-- Grid column -->
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+                    <!-- Links -->
+                    <h6 class="text-uppercase font-weight-bold">Contact</h6>
+                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                        <i class="fas fa-home mr-3"></i> New York, NY 10012, PT
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope mr-3"></i> joaosilgo96@gmail.com
+                    </p>
+                    <p>
+                        <i class="fas fa-phone mr-3"></i> + 351 964 575 619
+                    </p>
+                    <p>
+                        <i class="fas fa-print mr-3"></i> + 01 234 567 89
+                    </p>
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+        <!-- Copyright -->
+        <div class="footer-copyright text-center text-black-50 py-3">
+            © 2018 Copyright:
+            <a class="dark-grey-text" href="https://mdbootstrap.com/education/bootstrap/"> joaogomes.com</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+
+   
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- jQuery first, then Material Bootstrap JS -->
+
+    <script src="/assets/js/material-bootstrap.js"></script>
+    @* <script src="~/js/tail.select-full.min.js" asp-append-version="true"></script>*@
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

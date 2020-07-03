@@ -1,0 +1,190 @@
+﻿@model infoSys.Models.Project
+
+@{
+    Layout = "_Layout";
+}
+
+
+
+<h4>Project</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                @{
+                    if (Model.imageContent != null && Model.imageMimeType.Contains("image"))
+                    {
+                        string imageBase64 = Convert.ToBase64String(Model.imageContent);
+                        string imageSrc = string.Format("data:" + Model.imageMimeType + ";base64,{0}", imageBase64);
+                        <img src="@imageSrc" alt="Thumbail @Model.Name" style="max-height:500px; max-width:600px" class="img-responsive img-thumbnail" />
+                        // <input type="checkbox" id="chkRemoveImage" name="chkRemoveImage" />
+                    }
+                }
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SmallDescription" class="control-label"></label>
+                <input asp-for="SmallDescription" class="form-control" />
+                <span asp-validation-for="SmallDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                @*<input asp-for="Description" class="form-control" />*@
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="created_at" class="control-label"></label>
+                <input asp-for="created_at" class="form-control" />
+                <span asp-validation-for="created_at" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="updated_at" class="control-label"></label>
+                <input asp-for="updated_at" class="form-control" />
+                <span asp-validation-for="updated_at" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pushed_at" class="control-label"></label>
+                <input asp-for="pushed_at" class="form-control" />
+                <span asp-validation-for="pushed_at" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="size_kb" class="control-label"></label>
+                <input asp-for="size_kb" class="form-control" />
+                <span asp-validation-for="size_kb" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Language" class="control-label"></label>
+                <input asp-for="Language" class="form-control" />
+                <span asp-validation-for="Language" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Languages" class="control-label"></label>
+                @*<input asp-for="Languages" class="form-control" />*@
+                <textarea asp-for="Languages" class="form-control"></textarea>
+                <span asp-validation-for="Languages" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Link" class="control-label"></label>
+                <input asp-for="Link" class="form-control" />
+                <span asp-validation-for="Link" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Features" class="control-label"></label>
+                <input asp-for="Features" class="form-control" />
+                <span asp-validation-for="Features" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Intent" class="control-label"></label>
+                <input asp-for="Intent" class="form-control" />
+                <span asp-validation-for="Intent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Difficulties" class="control-label"></label>
+                <input asp-for="Difficulties" class="form-control" />
+                <span asp-validation-for="Difficulties" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Solution" class="control-label"></label>
+                <input asp-for="Solution" class="form-control" />
+                <span asp-validation-for="Solution" class="text-danger"></span>
+            </div>
+            <div class="file form-control-file input-file-container">
+                <input type="file" name="Thumbnail" id="file" />
+                <label for="file">Thumbnail</label>
+            </div>
+
+
+            @if (Model.ProjectThumbnails != null)
+            {
+                <div class="form-group">
+                    <div class="card-deck">
+                        @foreach (var item in Model.ProjectThumbnails)
+                        {
+
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card border-0 transform-on-hover embed-responsive ">
+                                    <a asp-controller="ProjectThumbnails" asp-action="Details" asp-route-id="@item.ProjectThumbnailId">
+                                        @{
+                                            if (item.imageContent != null && item.imageMimeType.Contains("image"))
+                                            {
+                                                string imageBase64 = Convert.ToBase64String(item.imageContent);
+                                                string imageSrc = string.Format("data:" + item.imageMimeType + ";base64,{0}", imageBase64);
+                                                <img src="@imageSrc" alt="Thumbnail @item.Name" @*style="width:100%"*@ class="card-img-top img-fluid " />
+
+                                            }
+                                        }
+
+                                    </a>
+                                    <div class="card-body">
+                                        <h6>@item.Name</h6>
+                                        <p class="text-muted card-text">@item.Description</p>
+                                        
+                                        <a asp-controller="ProjectThumbnails" asp-action="Delete" asp-route-id="@item.ProjectThumbnailId" class="btn btn-outline-secondary btn-sm">Remove</a>
+                                    </div>
+                                   
+
+
+                                </div>
+                            </div>
+
+                       }
+
+                        
+                    </div>
+                </div>
+           }
+                <div class="form-group">
+                    <input type="button" class="btn btn-secondary btn-sm" value="Add Thumbnail" onclick="@("window.location.href='" + @Url.Action("Create", "ProjectThumbnails", new {projectId = Model.Id }) + "'");" />
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-secondary" />
+                </div>
+
+            </form>
+</div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+<style>
+    .file {
+        position: relative;
+    }
+
+        .file label {
+            background: #808080;
+            padding: 5px 20px;
+            color: #fff;
+            font-weight: bold;
+            font-size: .9em;
+            transition: all .4s;
+        }
+
+        .file input {
+            position: absolute;
+            display: inline-block;
+            left: 0;
+            top: 0;
+            opacity: 0.01;
+            cursor: pointer;
+        }
+
+            .file input:hover + label,
+            .file input:focus + label {
+                background: #34495E;
+                color: #808080;
+            }
+</style>

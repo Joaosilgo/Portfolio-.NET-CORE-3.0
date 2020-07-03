@@ -1,0 +1,193 @@
+﻿@model infoSys.Models.Resume
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Resume</h4>
+<hr />
+<div class="align-items-center">
+
+
+    <div>
+        @{
+            if (Model.imageContent != null && Model.imageMimeType.Contains("image"))
+            {
+                string imageBase64 = Convert.ToBase64String(Model.imageContent);
+                string imageSrc = string.Format("data:" + Model.imageMimeType + ";base64,{0}", imageBase64);
+                <img src="@imageSrc" alt="Thumbail @Model.Name" style="max-height:100px; max-width:120px" class="img-responsive img-thumbnail" />
+            }
+        }
+    </div>
+
+    <form asp-action="Edit"  method="post" enctype="multipart/form-data" >
+        <div class="form-row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ResumeId" />
+            <div class="form-group col-md-3">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="DOB" class="control-label"></label>
+                <input asp-for="DOB" class="form-control" />
+                <span asp-validation-for="DOB" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label asp-for="Gender" class="control-label"></label>
+                <input asp-for="Gender" class="form-control" />
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label asp-for="Nationality" class="control-label"></label>
+                <input asp-for="Nationality" class="form-control" />
+                <span asp-validation-for="Nationality" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="Phones" class="control-label"></label>
+                <input asp-for="Phones" class="form-control" />
+                <span asp-validation-for="Phones" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-3">
+                <label asp-for="Web" class="control-label"></label>
+                <input asp-for="Web" class="form-control" />
+                <span asp-validation-for="Web" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label asp-for="Declaration" class="control-label"></label>
+                <input asp-for="Declaration" class="form-control" />
+                <span asp-validation-for="Declaration" class="text-danger"></span>
+            </div>
+
+
+            <div class=" form-group custom-control custom-switch col-md-3">
+                <input type="checkbox" class=" form-check-input custom-control-input" asp-for="Default" id="Default">
+                <label class="custom-control-label" asp-for="Default">@Html.DisplayNameFor(model => model.Default)</label>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="file form-control-file input-file-container">
+                <input type="file" name="Picture" id="file" />
+                <label for="file">Fotografia</label>
+            </div>
+        </div>
+        @if (Model.Formations != null)
+        {
+            <div class="form-group">
+                <div class="card-deck">
+                    @foreach (var item in Model.Formations)
+                    {
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.FormationOrganization</h5>
+                                <p class="card-text">
+                                    @item.FormationDesig
+                                </p>
+                                <a asp-controller="Formations" asp-action="Delete" asp-route-id="@item.FormationId" class="btn btn-outline-secondary btn-sm">Delete</a>
+                                <a asp-controller="Formations" asp-action="Edit" asp-route-id="@item.FormationId" class="btn btn-outline-secondary btn-sm">Edit</a>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">@item.DateBegin.Year - @item.DateEnd.Year</small>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        }
+        <div class="form-group">
+            <input type="button" class="btn btn-secondary btn-sm" value="Add Formation" onclick="@("window.location.href='" + @Url.Action("Create", "Formations") + "'");" />
+        </div>
+        @if (Model.Experiences != null)
+        {
+            <div class="form-group">
+                <div class="card-deck">
+
+
+                    @foreach (var item in Model.Experiences)
+                    {
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.Employer</h5>
+                                <p class="card-text">
+                                    @item.Role
+                                </p>
+                                <a asp-controller="ProfessionalExperiences" asp-action="Delete" asp-route-id="@item.ProfessionalExperienceId" class="btn btn-outline-secondary btn-sm">Delete</a>
+                                <a asp-controller="ProfessionalExperiences" asp-action="Edit" asp-route-id="@item.ProfessionalExperienceId" class="btn btn-outline-secondary btn-sm">Edit</a>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">@item.DateBegin.Year - @item.DateEnd.Year</small>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+        <div class="form-group">
+            <input type="button" class="btn btn-secondary btn-sm" value="Professional Experiences" onclick="@("window.location.href='" + @Url.Action("Create", "ProfessionalExperiences") + "'");" />
+        </div>
+        @if (Model.Projetos != null)
+        {
+            <div class="form-group">
+                <div class="card-deck">
+                    @foreach (var item in Model.Projetos)
+                    {
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.ProjectResumeId</h5>
+                                <p class="card-text">
+                                    @item.ProjectResumeId
+                                </p>
+                                <a asp-controller="ProjectResumes" asp-action="Delete" asp-route-id="@item.ProjectResumeId" class="btn btn-outline-secondary btn-sm">Delete</a>
+                                <a asp-controller="ProjectResumes" asp-action="Edit" asp-route-id="@item.ProjectResumeId" class="btn btn-outline-secondary btn-sm">Edit</a>
+                            </div>
+                            <div class="card-footer">
+                                @* <small class="text-muted">@item.DateBegin.Year - @item.DateEnd.Year</small>*@
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        }
+
+        <div class="form-group">
+            <input type="button" class="btn btn-secondary btn-sm" value="Projects" onclick="@("window.location.href='" + @Url.Action("Create", "ProjectResumes") + "'");" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-secondary" />
+        </div>
+    </form>
+
+    </div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

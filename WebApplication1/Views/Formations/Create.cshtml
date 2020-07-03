@@ -1,0 +1,58 @@
+﻿@model infoSys.Models.Formation
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Formation</h4>
+<hr />
+
+<form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label asp-for="DateBegin" class="control-label"></label>
+            <input asp-for="DateBegin" class="form-control" />
+            <span asp-validation-for="DateBegin" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-3">
+            <label asp-for="DateEnd" class="control-label"></label>
+            <input asp-for="DateEnd" class="form-control" />
+            <span asp-validation-for="DateEnd" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3 ">
+            <label asp-for="FormationDesig" class="control-label"></label>
+            <input asp-for="FormationDesig" class="form-control" />
+            <span asp-validation-for="FormationDesig" class="text-danger"></span>
+        </div>
+
+        <div class="form-group col-md-3">
+            <label asp-for="FormationOrganization" class="control-label"></label>
+            <input asp-for="FormationOrganization" class="form-control" />
+            <span asp-validation-for="FormationOrganization" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label asp-for="FormationSkills" class="control-label"></label>
+            <textarea asp-for="FormationSkills" class="form-control"> </textarea>
+            <span asp-validation-for="FormationSkills" class="text-danger"></span>
+        </div>
+    </div>
+        @*<div class="form-group">
+            <label asp-for="ResumeId" class="control-label"></label>
+            <select asp-for="ResumeId" class="form-control" asp-items="ViewBag.ResumeId"></select>
+        </div>*@
+        <div class="form-group">
+            <input type="submit" value="Create Formation" class="btn btn-secondary btn-sm" />
+        </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
